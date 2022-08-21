@@ -1,4 +1,5 @@
 import "../Nav/NavBar.css"
+import CartWidget from "../Cart/CartWidget"
 
 export default function Navbar() {
   return (
@@ -20,6 +21,9 @@ export default function Navbar() {
           </li>
           <li>
             <a href="/#">CONTACTO</a>
+          </li>
+          <li className="cartIcon2">
+            <a className="cartIcon" href="/#"><CartWidget/></a>
           </li>
         </ul>
       </nav>

@@ -1,4 +1,9 @@
-
-svg {
+.cartIcon a{
     color: aliceblue;
+    display: flex;
+    flex-direction: row;
+}
+
+.cartIcon a:hover{
+    color: red;
 }

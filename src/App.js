@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import Navbar from "./components/Nav/Navbar.js"
-import CartWidget from "./components/Cart/CartWidget.js"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 export default function App() {
 
@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div>
       <Navbar/>
-      <CartWidget/>
+      <ItemListContainer/>
     </div>
   );
 }
