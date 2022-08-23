@@ -2,6 +2,8 @@ import React from "react";
 import "./index.css";
 import Navbar from "./components/Nav/Navbar.js"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import Contador from "./components/Contador"
+
 
 export default function App() {
 
@@ -10,6 +12,7 @@ export default function App() {
     <div>
       <Navbar/>
       <ItemListContainer/>
+      <Contador/>
     </div>
   );
 }
