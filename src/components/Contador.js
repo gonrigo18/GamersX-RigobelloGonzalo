@@ -16,6 +16,11 @@ const Contador = () => {
     const restar = () => {
         setCounter(counter -1)
     }
+
+    
+
+
+
     return (
 
         <div className="container my-5">

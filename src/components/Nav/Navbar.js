@@ -1,3 +1,4 @@
+import React from "react"
 import "../Nav/NavBar.css"
 import CartWidget from "../Cart/CartWidget"
 
