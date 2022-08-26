@@ -4,7 +4,7 @@ export const stock = [
         nombre: 'Producto 1',
         precio: 1000,
         img: 'https://via.placeholder.com/250',
-        stock: 50,
+        stock: 3,
         desc: 'Un gran producto'
     },
     {

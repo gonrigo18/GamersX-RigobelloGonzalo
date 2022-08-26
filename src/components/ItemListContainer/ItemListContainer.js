@@ -1,14 +1,32 @@
 import React from "react"
+import { useEffect, useState } from "react"
+import  RequestData  from "../../components/RequestData/RequestData.js"
+import ItemList from "../../components/ItemlList/ItemList.js"
 import "../ItemListContainer/ItemList.css"
 
 
-export default function ItemListContainer(greeting) {
+const ItemListContainer = () => {
+  const [productos, setProductos] = useState([])
 
-  console.log(greeting);
+  useEffect(() => {
+      RequestData()
+          .then( (res) => {
+              setProductos(res)
+          })
+          .catch( (error) => {
+              console.log(error)
+          })
+          .finally(() => {
+              // console.log("Fin del proceso")
+          })
+  }, [])
 
-    return (
+
+  return (
       <div>
-        <p>ITEM LIST CONTAINER</p>
+          <ItemList productos={productos}/>
       </div>
-    );
-  }
+  )
+}
+
+export default ItemListContainer

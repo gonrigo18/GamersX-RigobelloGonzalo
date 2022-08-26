@@ -1,3 +1,5 @@
+import React from "react"
+import ItemCount from "../ItemCount/ItemCount"
 
 const Item = ( {producto} ) => {
 
@@ -8,7 +10,8 @@ const Item = ( {producto} ) => {
             <p>Precio: {producto.precio}</p>
             <small>Stock disponible: {producto.stock}</small>
             <p>{producto.desc}</p>
-            <a className="btn btn-primary my-2">Ver más</a>
+            <a href="#" className="btn btn-primary my-2">Ver más</a>
+            <ItemCount stock= " " initial="1"/>
         </div>
     )
 }
