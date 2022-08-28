@@ -4,7 +4,7 @@ import { useState } from "react"
 
 
 
-const ItemCount = ({ stock, initial, addToCart }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
 
     let [count, setCounter] = useState(0)
 
@@ -25,7 +25,7 @@ const ItemCount = ({ stock, initial, addToCart }) => {
             <button onClick={rest} className="btn btn-outline-primary">-</button>
             <span className="mx-2">{count}</span>
             <button onClick={add} className="btn btn-primary">+</button>
-            <button style ={{width:"100%", marginTop: "1rem" }}disabled={stock<=0} onClick={()=> addToCart(count)}>Añadir al carrito</button>
+            <button style ={{width:"100%", marginTop: "1rem" }}disabled={stock<=0} onClick={()=> onAdd(count)}>Añadir al carrito</button>
 
         </div>
 

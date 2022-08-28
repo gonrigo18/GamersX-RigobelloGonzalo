@@ -7,7 +7,7 @@ import ItemCount from '../ItemCount/ItemCount.js';
 
 const ItemCard = (props) => {
   const  {name, desc, img, price, stock} = props;
-  const addToCart = (count) =>{
+  const onAdd= (count) =>{
     console.log("Se agregó al carrito", count, name,price)
   }
   return (
@@ -21,7 +21,7 @@ const ItemCard = (props) => {
           <CardText>
             {desc}
           </CardText>
-          <ItemCount stock= {stock} addToCart={addToCart}/>
+          <ItemCount stock= {stock} onAdd={onAdd}/>
         </CardBody>
         <CardFooter>
           $ {price} - Stock: {stock}

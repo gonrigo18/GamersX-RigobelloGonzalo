@@ -23,7 +23,7 @@ const ItemListContainer = () => {
             name: 'Memoria GeiL DDR4 16GB 3000MHz Orion RGB Black',
             price: 13350,
             img: './img/Memoria_GeiL_DDR4_16GB_3000MHz_Orion_RGB_Black_aa7bb4c0-grn.jpg',
-            stock: 12,
+            stock: 0,
             desc: 'Capacidad 16 gb, Velocidad 3000 mhz, Tipo DDR4, Cantidad De Memorias 1, Latencia 16 cl, Voltaje 1.35 v'
         },
         {
@@ -72,7 +72,7 @@ const ItemListContainer = () => {
                 } else {
                     reject("Error")
                 }
-            }, 5000)
+            }, 3000)
         })
     }
 
