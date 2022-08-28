@@ -72,7 +72,7 @@ const ItemListContainer = () => {
                 } else {
                     reject("Error")
                 }
-            }, 3000)
+            }, 2000)
         })
     }
 
