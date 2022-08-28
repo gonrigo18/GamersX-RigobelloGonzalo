@@ -3,33 +3,28 @@ import { useState } from "react"
 
 
 
-function ItemCount ({stock, initial, onAdd})  {
+const ItemCount = ({ stock, initial, onAdd }) => {
 
+    let [count, setCounter] = useState(0)
 
-    stock = 0
-
-    let [counter, setCounter] = useState(0)
-
-            const sumar = () => {
-                if (initial < stock){
-                    setCounter(counter + 1)
-                    stock--
-                    initial++
-                    console.log(" stock " + stock + " initial " + initial)
-                }else{
-                    console.log("Stock insuficiente")
-                }
-            }
-            const restar = () => {
-                setCounter(counter -1)
-            }
+    const add = () => {
+        if (count < stock) {
+            setCounter(count + 1)
+        }
+    }
+    const rest = () => {
+        if (count > 0) {
+            setCounter(count - 1)
+        }
+    }
 
     return (
 
         <div className="container my-5">
-                <button onClick={restar} className="btn btn-outline-primary">-</button>
-                <span className="mx-2">{counter}</span>
-                <button onClick={ sumar} className="btn btn-primary">+</button>
+            <button onClick={rest} className="btn btn-outline-primary">-</button>
+            <span className="mx-2">{count}</span>
+            <button onClick={add} className="btn btn-primary">+</button>
+            <button style ={{width:"100%", marginTop: "1rem" }}disabled={stock <= 0}>Añadir al carrito</button>
 
         </div>
 

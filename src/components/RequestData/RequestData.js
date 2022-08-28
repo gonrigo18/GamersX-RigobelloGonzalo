@@ -1,5 +1,5 @@
 import React from 'react';
-import {stock} from "../../data/data.js"
+import stock from "../../data/DataContainer.js"
 
 const RequestData = () => {
 

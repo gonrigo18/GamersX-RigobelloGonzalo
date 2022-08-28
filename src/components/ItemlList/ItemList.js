@@ -1,14 +1,14 @@
-import React from "react"
-import Item from "../Item/Item"
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const ItemList = ( {productos = []} ) => {
-
+const ItemList = ({ productos = [] }) => {
+ /*
     return (
         <div className="container my-5">
-            { productos.map((prod) => <Item producto={prod} key={prod.id}/>)}
+            {productos.map((prod) => <Item producto={prod} key={prod.id} />)}
         </div>
-    )
+    )*/
 }
 
 export default ItemList
