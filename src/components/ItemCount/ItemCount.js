@@ -1,9 +1,10 @@
 import React from "react"
 import { useState } from "react"
+import addToCart from '../ItemListContainer/ItemCard.js'
 
 
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, addToCart }) => {
 
     let [count, setCounter] = useState(0)
 
@@ -24,7 +25,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             <button onClick={rest} className="btn btn-outline-primary">-</button>
             <span className="mx-2">{count}</span>
             <button onClick={add} className="btn btn-primary">+</button>
-            <button style ={{width:"100%", marginTop: "1rem" }}disabled={stock <= 0}>Añadir al carrito</button>
+            <button style ={{width:"100%", marginTop: "1rem" }}disabled={stock<=0} onClick={()=> addToCart(count)}>Añadir al carrito</button>
 
         </div>
 

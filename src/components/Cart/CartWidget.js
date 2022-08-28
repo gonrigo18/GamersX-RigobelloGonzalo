@@ -3,15 +3,12 @@ import React, { Component } from 'react';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 
-class Like extends Component {
-  render() {
+const CartWidget = () => {
     return (
     <div>
       <AiOutlineShoppingCart />
     </div>
-    
-    ) 
+    )
   }
-}
 
-export default Like
+export default CartWidget
