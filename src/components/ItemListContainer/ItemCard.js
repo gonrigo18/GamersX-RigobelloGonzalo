@@ -12,7 +12,7 @@ const ItemCard = (props) => {
   }
   return (
     <div>
-      <Card className="my-2" style={{ width: '18rem' }}>
+      <Card style={{ width: '18rem' }}>
         <img src= {img}/>
         <CardBody>
           <CardTitle tag="h5">
