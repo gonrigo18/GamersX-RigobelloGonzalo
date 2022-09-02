@@ -1,8 +1,6 @@
 import React from "react"
 import "../ItemListContainer/ItemList.css"
-import ItemCard from "./ItemCard.js"
-import { useEffect, useState } from "react"
-import { Spinner } from 'reactstrap';
+import ItemList from "../ItemlList/ItemList";
 
 
 
@@ -60,45 +58,9 @@ const ItemListContainer = () => {
         },
     ]
 
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
-
-    const getData = () => {
-        const error = false
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (!error) {
-                    resolve(products)
-                } else {
-                    reject("Error")
-                }
-            }, 2000)
-        })
-    }
-
-    useEffect(() => {
-        getData()
-            .then(res => {
-                setData(res);
-                setLoading(false)
-            })
-            .catch(error => console.log(error))
-    }, []);
-
     return (
         <div>
-            {
-                loading ? (<Spinner color="primary" style={{  height: '2rem', width: '2rem'
-                }} />) : <div className="row">
-                    {
-                        data.map(product => (
-                            <div className="col-4">
-                                <ItemCard key={product.id} name={product.name} price={product.price} img={product.img} desc={product.desc} stock={product.stock} />
-                            </div>
-                        ))
-                    }
-                </div>
-            }
+            <ItemList products={products}/>
         </div>
     )
 }

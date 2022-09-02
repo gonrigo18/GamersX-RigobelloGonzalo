@@ -13,7 +13,7 @@ const ItemCard = (props) => {
   return (
     <div>
       <Card style={{ width: '18rem' }}>
-        <img src= {img}/>
+        <img src= {img} alt=""/>
         <CardBody>
           <CardTitle tag="h5">
             {name}

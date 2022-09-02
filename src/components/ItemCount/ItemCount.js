@@ -8,13 +8,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     let [count, setCounter] = useState(0)
 
-    const add = () => {
+    const handleAdd = () => {
         if (count < stock) {
             setCounter(count + 1)
         }
     }
-    const rest = () => {
-        if (count > 0) {
+    const handleRest = () => {
+        if (count > 0 ) {
             setCounter(count - 1)
         }
     }
@@ -22,9 +22,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
 
         <div className="container my-5">
-            <button onClick={rest} className="btn btn-outline-primary">-</button>
+            <button onClick={handleRest} className="btn btn-outline-primary">-</button>
             <span className="mx-2">{count}</span>
-            <button onClick={add} className="btn btn-primary">+</button>
+            <button onClick={handleAdd} className="btn btn-primary">+</button>
             <button style ={{width:"100%", marginTop: "1rem" }}disabled={stock<=0} onClick={()=> onAdd(count)}>Añadir al carrito</button>
 
         </div>
