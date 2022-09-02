@@ -1,17 +1,31 @@
 import React from "react"
-import ItemCount from "../ItemCount/ItemCount"
+import { Link } from 'react-router-dom'
+import { Card, CardBody, CardTitle, CardFooter } from 'reactstrap';
+import ItemCount from '../ItemCount/ItemCount'
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const Item = ( {producto} ) => {
 
+const Item = ({ producto }) => {
+    const  {name, price, stock} = producto;
+    const onAdd= (count) =>{
+        console.log("Se agregó al carrito", count, name,price)
+      }
     return (
-        <div>
-            <img src={producto.img}/>
-            <h4>{producto.name}</h4>
-            <p>Precio: {producto.price}</p>
-            <small>Stock disponible: {producto.stock}</small>
-            <p>{producto.desc}</p>
-            <a href="#" className="btn btn-primary my-2">Ver más</a>
-            <ItemCount stock= {stock} initial="1"/>
+        <div className="row">
+            <Card style={{ width: '15rem' }}>
+                <img src={producto.img} alt="" />
+                <CardBody>
+                    <CardTitle tag="h6">
+                        {producto.name}
+                    </CardTitle>
+                    <ItemCount stock={stock} onAdd={onAdd} />
+                </CardBody>
+                <CardFooter>
+                    <p>Precio: {producto.price}</p>
+                    <small>Stock disponible: {producto.stock}</small>
+                </CardFooter>
+                <Link to={`/item/${producto.id}`} className="btn btn-primary my-2">Ver más</Link>
+            </Card>
         </div>
     )
 }

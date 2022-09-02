@@ -6,6 +6,7 @@ import { useState } from "react"
 
 const ItemCount = ({ stock, initial, onAdd }) => {
 
+    
     let [count, setCounter] = useState(0)
 
     const handleAdd = () => {
@@ -18,6 +19,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
             setCounter(count - 1)
         }
     }
+
 
     return (
 
