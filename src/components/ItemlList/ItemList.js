@@ -20,7 +20,7 @@ const ItemList = ( { productos = [] }) => {
         })
     }*/
     return (
-        <div className="row">
+        <div className="my-5 ver">
             {productos.map((prod) => <Item producto={prod} key={prod.id} />)}
         </div>
     )

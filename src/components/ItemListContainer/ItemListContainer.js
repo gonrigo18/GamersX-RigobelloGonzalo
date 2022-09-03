@@ -5,6 +5,7 @@ import ItemList from "../ItemlList/ItemList"
 import { useParams } from 'react-router-dom'
 import {requestData} from "../RequestData/RequestData"
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../ItemListContainer/ItemListContainer.css"
 
 
 const ItemListContainer = () => {
@@ -13,7 +14,7 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
-    console.log(categoryId)
+
 
     useEffect(() => {
         setLoading(true)
@@ -35,7 +36,7 @@ const ItemListContainer = () => {
     }, [categoryId]);
 
     return (
-        <div>
+        <div className="my-5">
             {
                 loading 
                 ? (<Spinner color="primary" style={{ height: '2rem', width: '2rem' }} />) 

@@ -11,7 +11,7 @@ const Item = ({ producto }) => {
         console.log("Se agregó al carrito", count, name,price)
       }
     return (
-        <div className="row">
+        <div className="col-3 ver">
             <Card style={{ width: '15rem' }}>
                 <img src={producto.img} alt="" />
                 <CardBody>

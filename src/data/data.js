@@ -54,4 +54,16 @@ export const data = [
             desc: 'Modelo Ryzen 5 1600 AF Socket AM4 Ryzen 2th Gen Núcleos 6 Frecuencia 3200.00 mhz Proceso De Fabricación 12 nm Chipset Gpu NO Posee Gráficos Integrados Hilos 12 Frecuencia Turbo 3600 mhz Familia AMD RYZEN 5',
             category: "Procesadores"
         },
+
+        {
+            id: 7,
+            name: 'Auriculares ASUS ROG STRIX GO CORE Moonlight White',
+            price: 18970,
+            img: './img/Auriculares_ASUS_ROG_STRIX_GO_CORE_Moonlight_White_39c6f4b3-grn.jpg',
+            stock: 12,
+            desc: 'Audio 2.0 Colores Blanco Conexión Cableado Con Micrófono Si Tipo De Audio Real Tipo Headset',
+            category: "Sonido"
+        }
+
+
     ]
