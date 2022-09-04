@@ -24,12 +24,12 @@ const NavBar = () => {
                                 Categorias
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem href="/Category/Ram">Memorias Ram</DropdownItem>
-                                <DropdownItem href="/Category/Mothers">Mothers</DropdownItem>
-                                <DropdownItem href="/Category/Notebooks">Notebooks</DropdownItem>
-                                <DropdownItem href="/Category/Audio">Audio</DropdownItem>
-                                <DropdownItem href="/Category/Muebles">Muebles</DropdownItem>
-                                <DropdownItem href="/Category/Notebooks">Notebooks</DropdownItem>
+                                <DropdownItem href="/category/ram">Memorias Ram</DropdownItem>
+                                <DropdownItem href="/category/mothers">Mothers</DropdownItem>
+                                <DropdownItem href="/category/notebooks">Notebooks</DropdownItem>
+                                <DropdownItem href="/category/audio">Audio</DropdownItem>
+                                <DropdownItem href="/category/muebles">Muebles</DropdownItem>
+                                <DropdownItem href="/category/notebooks">Notebooks</DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
                         <NavItem>

@@ -21,13 +21,13 @@ const App = () => {
       <Routes>
 
         <Route path="/" element={<ItemListContainer />} />
-        <Route path="/Productos" element={<ItemListContainer />} />
-        <Route path="/Category/:categoryId" element={<ItemListContainer />} />
+        <Route path="/productos" element={<ItemListContainer />} />
+        <Route path="/category/:categoryId" element={<ItemListContainer />} />
         <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-        <Route path="/Category" element={<Category />} />
-        <Route path="/Contacto" element={<Contact />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/contacto" element={<Contact />} />
         <Route path="*" element={<NotFound404 />} />
-        <Route path="/Cart" element={<CartWidget />} />
+        <Route path="/cart" element={<CartWidget />} />
       </Routes>
 
 
