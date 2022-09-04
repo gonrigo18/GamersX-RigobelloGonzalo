@@ -40,7 +40,7 @@ const ItemListContainer = () => {
         <h3>PRODUCTOS: </h3>
             {
                 loading 
-                ?  (<center><Spinner color="primary" style={{ height: '2rem', width: '2rem' }} /></center>)
+                ?  (<center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>)
                 : <ItemList productos={productos}/>      
             }
         </div>
