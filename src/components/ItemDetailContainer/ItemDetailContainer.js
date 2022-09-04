@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { requestData } from "../RequestData/RequestData"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import {Spinner} from "reactstrap"
+import "../ItemDetailContainer/ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
 
@@ -26,7 +27,7 @@ const ItemDetailContainer = () => {
     }, [])
 
     return (
-        <div>{loading ? (<Spinner color="primary" style={{ height: '2rem', width: '2rem' }} />) : <ItemDetail item={item} />}</div>
+        <div className="prod-card">{loading ? (<center><Spinner color="primary" style={{ height: '2rem', width: '2rem' }} /></center>) : <ItemDetail item={item} />}</div>
     )
 }
 

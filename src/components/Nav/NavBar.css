@@ -1,16 +1,3 @@
-li {
-    list-style-type: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  body{
-
-    text-decoration: none;
-  }
-
   nav {
     display: flex;
     flex-direction: row;
@@ -22,49 +9,37 @@ li {
     color: white;
     justify-content: space-evenly;
   }
-  nav .nav-links{
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-
-  nav .nav-links li {
-    border-right: 1px solid #9B9A9A;
-    float: left;
-    list-style: none outside none;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: auto;
-    justify-content: space-around;
-}
-nav .nav-links .cartIcon2 {
-  border-right: none;
-  float: left;
-  list-style: none outside none;
-  margin-left: 150px;
-  padding-left: 15px;
-  padding-right: 15px;
-  width: auto;
-}
-
-  nav .logo {
-    font-size: 30px;
-    text-transform: uppercase;
-  }
-
-
-  nav .nav-links li a {
-    font-size: 15px;
+  
+  .nav-item .nav-link  {
+    margin-left: 25px;
     cursor: pointer;
-    color: aliceblue;
+    color: rgb(23, 182, 255);
   }
 
-  nav .nav-links li .cartIcon {
-    font-size: 20px;
-    border-right: none;
+  .nav-item  a:hover{
+    color: red;
   }
 
+  .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link{
+    color: red;
+  }
 
-  nav .nav-links li a:hover {
-    text-decoration: none;
+  .navbar-brand {
+    font-size: 30px;
+    color: rgb(23, 182, 255);
+  }
+  .navbar-collapse {
+    margin-left: 20px;
+  }
+  .navbar-collapse a{
+    font-size: 17px;
+    color: rgb(23, 182, 255);
+  }
+  .navbar-collapse .cart{
+    margin-right: 50px;
+    font-size: 25px;
+    color: rgb(23, 182, 255);
+  }
+  .navbar-collapse a:hover{
     color: red;
   }

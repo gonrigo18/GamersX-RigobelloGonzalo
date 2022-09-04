@@ -12,3 +12,6 @@ body{
   justify-content: space-around;
 }
 
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+  text-align: center;
+}

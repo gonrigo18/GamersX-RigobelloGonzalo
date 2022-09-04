@@ -37,9 +37,10 @@ const ItemListContainer = () => {
 
     return (
         <div className="my-5">
+        <h3>PRODUCTOS: </h3>
             {
                 loading 
-                ? (<Spinner color="primary" style={{ height: '2rem', width: '2rem' }} />) 
+                ?  (<center><Spinner color="primary" style={{ height: '2rem', width: '2rem' }} /></center>)
                 : <ItemList productos={productos}/>      
             }
         </div>
