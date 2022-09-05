@@ -3,7 +3,8 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { requestData } from "../RequestData/RequestData"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import {Spinner} from "reactstrap"
+import { Spinner } from "reactstrap"
+import { Navigate } from "react-router-dom";
 import "../ItemDetailContainer/ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
@@ -27,7 +28,14 @@ const ItemDetailContainer = () => {
     }, [])
 
     return (
-        <div className="prod-card">{loading ? (<center><Spinner color="primary" style={{ height: '2rem', width: '2rem' }} /></center>) : <ItemDetail item={item} />}</div>
+        <>
+            {
+                item === undefined ?
+                    <Navigate to="/" replace={true} />
+                    :
+                    <div className="prod-card">{loading ? (<center><Spinner color="primary" style={{ height: '2rem', width: '2rem' }} /></center>) : <ItemDetail item={item} />}</div>
+            }
+        </>
     )
 }
 

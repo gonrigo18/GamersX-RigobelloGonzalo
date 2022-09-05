@@ -1,0 +1,16 @@
+.all-form{
+    text-align: center;
+    justify-content: center;
+}
+.marginTop-all{
+    margin-top: 50px;
+}
+.all-form .mb-4{
+    text-align: center;
+    justify-content: center;
+}
+.form-control{
+    text-align:left;
+    justify-content: center;
+    width: 30%;
+}
