@@ -15,7 +15,6 @@ const ItemListContainer = () => {
 
     const { categoryId } = useParams()
 
-
     useEffect(() => {
         setLoading(true)
 
@@ -35,13 +34,14 @@ const ItemListContainer = () => {
             })
     }, [categoryId]);
 
+
     return (
         <div className="my-5">
         <h3>PRODUCTOS: </h3>
             {
-                loading 
+                loading
                 ?  (<center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>)
-                : <ItemList productos={productos}/>      
+                : <ItemList productos={productos}/>
             }
         </div>
     )
