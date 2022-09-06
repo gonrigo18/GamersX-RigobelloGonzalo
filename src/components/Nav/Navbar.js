@@ -26,7 +26,7 @@ const NavBar = () => {
                             <DropdownMenu>
                                 <DropdownItem href="/category/ram">Memorias Ram</DropdownItem>
                                 <DropdownItem href="/category/mothers">Mothers</DropdownItem>
-                                <DropdownItem href="/category/notebooks ">Notebooks</DropdownItem>
+                                <DropdownItem href="/category/notebooks">Notebooks</DropdownItem>
                                 <DropdownItem href="/category/audio">Audio</DropdownItem>
                                 <DropdownItem href="/category/muebles">Muebles</DropdownItem>
                                 <DropdownItem href="/category/notebooks">Notebooks</DropdownItem>
