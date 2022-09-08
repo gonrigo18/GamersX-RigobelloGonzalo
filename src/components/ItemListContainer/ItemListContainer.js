@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import React from 'react';
-import {Spinner} from "reactstrap"
+import { Spinner } from "reactstrap"
 import ItemList from "../ItemlList/ItemList"
 import { useParams } from 'react-router-dom'
-import {requestData} from "../RequestData/RequestData"
+import { requestData } from "../RequestData/RequestData"
+import { Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ItemListContainer/ItemListContainer.css"
+
 
 
 const ItemListContainer = () => {
@@ -36,14 +38,17 @@ const ItemListContainer = () => {
 
 
     return (
-        <div className="my-5">
-        <h3>PRODUCTOS: </h3>
-            {
+        <>
+            {   
+                productos.length?
+                <ItemList productos={productos}/>
+                :
                 loading
                 ?  (<center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>)
-                : <ItemList productos={productos}/>
+                :
+                <Navigate to="/error" replace={true}/>
             }
-        </div>
+        </>
     )
 }
 
@@ -55,4 +60,8 @@ export default ItemListContainer
             <ItemList name={product.name} price={product.price} img={product.img} stock={product.stock} />
         </div>
     ))
+
+    loading?  
+                (<center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>)
+                : 
 }*/
