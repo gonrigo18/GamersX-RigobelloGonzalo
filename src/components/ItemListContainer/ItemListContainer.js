@@ -39,14 +39,18 @@ const ItemListContainer = () => {
 
     return (
         <>
-            {   
-                productos.length?
-                <ItemList productos={productos}/>
-                :
-                loading
-                ?  (<center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>)
-                :
-                <Navigate to="/error" replace={true}/>
+            {
+                loading ?
+                    <center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>
+                    :
+                    <>
+                        {
+                            productos.length ?
+                                <ItemList productos={productos} />
+                                :
+                                <Navigate to="/error" replace={true} />
+                        }
+                    </>
             }
         </>
     )
