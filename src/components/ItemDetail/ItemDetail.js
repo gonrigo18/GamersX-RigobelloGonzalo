@@ -18,7 +18,7 @@ const ItemDetail = ({ item }) => {
     return (
         <>
             <Card>
-                <center><img src={item.img} alt="" width="30%"  /></center>
+                <center><img src={item.img} alt="" width="30%" /></center>
                 <CardBody>
                     <CardTitle tag="h6">
                         {item.name}
