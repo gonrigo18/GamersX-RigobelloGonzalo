@@ -8,10 +8,14 @@ import Contact from "./components/Contact/Contact";
 import NotFound404 from "./components/NotFound404/NotFound404";
 import CartWidget from "./components/Cart/CartWidget";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import { myContext } from "./Context/Context";
 
 const App = () => {
 
   return (
+
+    <myContext.Provider value={}>
+
     <BrowserRouter>
 
       <NavBar />
@@ -31,6 +35,8 @@ const App = () => {
 
 
     </BrowserRouter>
+
+    </myContext.Provider>
   );
 }
 
