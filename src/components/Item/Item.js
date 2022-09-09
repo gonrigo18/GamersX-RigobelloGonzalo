@@ -6,10 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const Item = ({ producto }) => {
+
     const  {name, price, stock} = producto;
-    const onAdd= (count) =>{
+    const onAdd = (count) =>{
         console.log("Se agregó al carrito", count, name,price)
-      }
+    }
     return (
         <>
             <Card style={{ width: '15rem' }}>

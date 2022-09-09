@@ -57,15 +57,3 @@ const ItemListContainer = () => {
 }
 
 export default ItemListContainer
-
-/*{
-    products.map(product => (
-        <div className="col-4" key={product.id}>
-            <ItemList name={product.name} price={product.price} img={product.img} stock={product.stock} />
-        </div>
-    ))
-
-    loading?  
-                (<center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>)
-                : 
-}*/

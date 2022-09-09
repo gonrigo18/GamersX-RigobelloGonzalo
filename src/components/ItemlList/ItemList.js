@@ -7,18 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const ItemList = ( { productos = [] }) => {
 
-    /*const getData = () => {
-        const error = false
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (!error) {
-                    resolve(products)
-                } else {
-                    reject("Error")
-                }
-            }, 1000)
-        })
-    }*/
     return (
         <div className="my-5 ver">
             {productos.map((prod) => <Item producto={prod} key={prod.id} />)}

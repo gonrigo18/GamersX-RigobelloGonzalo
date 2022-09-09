@@ -1,14 +1,20 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, CardFooter, CardText } from 'reactstrap';
 import ItemCount from '../ItemCount/ItemCount'
-import { Link } from 'react-router-dom'
+import { useState } from "react"
+
 
 const ItemDetail = ({ item }) => {
 
-    const { name, price, stock } = item;
-    const onAdd = (count) => {
-        console.log("Se agregó al carrito", count, name, price)
+    let [cantidad, setCantidad] = useState(1)
+
+    const handleOnAdd = () => {
+        console.log({
+            ...item,
+            cantidad
+        })
     }
+
     return (
         <>
             <Card>
@@ -20,12 +26,11 @@ const ItemDetail = ({ item }) => {
                     <CardText>
                         {item.desc}
                     </CardText>
-                    <ItemCount stock={stock} onAdd={onAdd} />
+                    <ItemCount stock={item.stock} count={cantidad} setCounter={setCantidad} handleOnAdd={handleOnAdd} />
                 </CardBody>
                 <CardFooter>
                     <p>Precio: {item.price}</p>
                     <small>Stock disponible: {item.stock}</small>
-                    <Link to={`/item/${item.id}`} className="btn btn-primary my-2">Ver más</Link>
                 </CardFooter>
             </Card>
         </>
