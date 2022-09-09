@@ -9,10 +9,13 @@ const ItemDetail = ({ item }) => {
     let [cantidad, setCantidad] = useState(1)
 
     const handleOnAdd = () => {
-        console.log({
-            ...item,
+        const itemToCart = {
+            id: item.id,
+            name: item.name,
+            price: item.price,
             cantidad
-        })
+        }
+        console.log(itemToCart)
     }
 
     return (
