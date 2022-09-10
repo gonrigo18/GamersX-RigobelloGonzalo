@@ -3,12 +3,13 @@ import React from 'react';
 
 
 
-const CartWidget = () => {
+const Cart = () => {
     return (
     <div>
-      <h1>Cart</h1>
+      <h1>Carrito</h1>
+      <hr />
     </div>
     )
   }
 
-export default CartWidget
+export default Cart

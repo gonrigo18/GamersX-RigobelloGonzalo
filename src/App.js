@@ -6,15 +6,30 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from "./components/Contact/Contact";
 import NotFound404 from "./components/NotFound404/NotFound404";
-import CartWidget from "./components/Cart/CartWidget";
+import Cart from "./components/Cart/"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import { myContext } from "./Context/Context";
+import { CartContext } from "./Context/CartContext";
+import { useState } from "react"
 
 const App = () => {
 
+  const [cart,setCart] = useState([])
+
+  const addToCart = (item) =>{
+    setCart([...cart, item])
+  }
+
+  const isInCart = (id) => {
+    return cart.some((item) => item.id === id)
+  }
+
   return (
 
-    <myContext.Provider value={}>
+    <CartContext.Provider value={{
+       cart,
+       addToCart,
+       isInCart
+    }}>
 
     <BrowserRouter>
 
@@ -30,13 +45,13 @@ const App = () => {
         <Route path="/contacto" element={<Contact />} />
         <Route path="*" element={<NotFound404 />} />
         <Route path="/error" element={<NotFound404 />} />
-        <Route path="/cart" element={<CartWidget />} />
+        <Route path="/cart" element={<Cart/>} />
       </Routes>
 
 
     </BrowserRouter>
 
-    </myContext.Provider>
+    </CartContext.Provider>
   );
 }
 
