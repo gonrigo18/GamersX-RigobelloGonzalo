@@ -9,6 +9,9 @@
     color: white;
     justify-content: space-evenly;
   }
+  .navbar{
+    align-items: center;
+  }
   
   .nav-item .nav-link  {
     margin-left: 25px;
@@ -30,11 +33,13 @@
   }
   .navbar-collapse {
     margin-left: 20px;
+    text-align:center;
   }
   .navbar-collapse a{
     font-size: 17px;
     color: rgb(23, 182, 255);
   }
+
   .navbar-collapse .cart{
     margin-right: 50px;
     font-size: 25px;
@@ -43,3 +48,5 @@
   .navbar-collapse a:hover{
     color: red;
   }
+
+  

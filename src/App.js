@@ -16,17 +16,16 @@ const App = () => {
   return (
 
     <CartProvider>
-
     <BrowserRouter>
 
       <NavBar />
-
-
       <Routes>
 
         <Route path="/" element={<ItemListContainer/>} />
         <Route path="/productos/:categoryId" element={<ItemListContainer />} />
         <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+        
+
 
 
         <Route path="/contacto" element={<Contact />} />

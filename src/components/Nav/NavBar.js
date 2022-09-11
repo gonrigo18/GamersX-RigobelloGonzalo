@@ -1,8 +1,10 @@
 import React from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../Nav/NavBar.css"
-import { Navbar, NavItem, NavbarToggler, Collapse, NavLink, Nav, NavbarBrand, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Navbar, NavItem, NavbarToggler, Collapse, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
+
 
 const NavBar = () => {
 
@@ -11,31 +13,31 @@ const NavBar = () => {
     return (
         <div style={{ display: 'block', }}>
             <Navbar color="dark" light expand="md">
-                <NavbarBrand href="/">GAMERSX</NavbarBrand>
+                <Link to="/"><h2>GAMERSX</h2></Link>
                 <NavbarToggler onClick={() => { setIsOpen(!isOpen) }} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="me-auto" navbar>
                         <NavItem>
-                            <NavLink href="/">Productos</NavLink>
+                            <Link to="/">Productos</Link>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Categorias
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem href="/productos/ram">Memorias Ram</DropdownItem>
-                                <DropdownItem href="/productos/mothers">Mothers</DropdownItem>
-                                <DropdownItem href="/productos/notebooks">Notebooks</DropdownItem>
-                                <DropdownItem href="/productos/audio">Audio</DropdownItem>
-                                <DropdownItem href="/productos/muebles">Muebles</DropdownItem>
-                                <DropdownItem href="/productos/notebooks">Notebooks</DropdownItem>
+                                <li><Link to="/productos/ram">Memorias Ram</Link></li>
+                                <li><Link to="/productos/mothers">Mothers</Link></li>
+                                <li><Link to="/productos/notebooks">Notebooks</Link></li>
+                                <li><Link to="/productos/audio">Audio</Link></li>
+                                <li><Link to="/productos/muebles">Muebles</Link></li>
+                                <li><Link to="/productos/notebooks">Notebooks</Link></li>
                             </DropdownMenu>
                         </UncontrolledDropdown>
                         <NavItem>
-                            <NavLink href="/Contacto">Contacto</NavLink>
+                            <Link to="/Contacto">Contacto</Link>
                         </NavItem>
                     </Nav>
-                    <CartWidget/>
+                    <CartWidget />
                 </Collapse>
             </Navbar>
         </div>

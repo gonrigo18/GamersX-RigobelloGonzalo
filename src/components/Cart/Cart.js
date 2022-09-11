@@ -1,13 +1,13 @@
 import "../Cart/Cart.css"
 import React from 'react';
-import { CartContext } from "../../Context/CartContext";
-import { useContext } from "react"
+import { useCartContext } from "../../Context/CartContext";
+import {BsFillTrashFill} from 'react-icons/bs'
 
 
 
 const Cart = () => {
 
-  const { cart, cartTotal, emptyCart } = useContext(CartContext)
+  const { cart, cartTotal, emptyCart, removeItem } = useCartContext()
 
   return (
     <div className="container my-5">
@@ -19,12 +19,13 @@ const Cart = () => {
             <h3>Producto: {item.name}</h3>
             <p>Precio: ${item.price}</p>
             <p>Cantidad: {item.cantidad}</p>
+            <button onClick={()=>removeItem(item.id)} className="btn btn-danger"><BsFillTrashFill/></button>
             <hr />
           </div>
         ))}
 
         <h4>Total: ${cartTotal()}</h4>
-        <button onClick={emptyCart}className="btn btn-danger">Vaciar carrito</button>
+        <button onClick={emptyCart} className="btn btn-danger">Vaciar carrito</button>
     </div>
   )
 }
