@@ -6,6 +6,7 @@ import { CartContext } from "../../Context/CartContext"
 import { Link } from 'react-router-dom'
 
 
+
 const ItemDetail = ({ item }) => {
 
 
@@ -35,7 +36,6 @@ const ItemDetail = ({ item }) => {
                     <CardText>
                         {item.desc}
                     </CardText>
-                    {isInCart(item.id) && <p>El item ya esta agregado</p>}
                     {
                         isInCart(item.id)
                             ? <Link to="/cart" className="btn btn-danger my-2">Terminar compra</Link>
