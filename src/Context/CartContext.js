@@ -12,6 +12,16 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
     const addToCart = (item) => {
+        Swal.fire({
+            position: 'center',
+            background: "black",
+            iconColor:"green",
+            color:"white",
+            icon: 'success',
+            title: 'Se añadió al carrito',
+            showConfirmButton: false,
+            timer: 1500
+        })
         setCart([...cart, item])
     }
 

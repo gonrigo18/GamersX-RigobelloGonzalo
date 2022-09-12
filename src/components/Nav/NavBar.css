@@ -1,18 +1,31 @@
-  nav {
+  .navbar{
+    background-color: #282c34;
+  }
+  .navbar a {
+    text-decoration: none;
+  }
+
+  .navbar .navbar-collapse .navbar-nav li a {
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+  }
+  .navbar .navbar-collapse .navbar-nav li .contacto{
+    margin-left: 15px;
+  }
+
+  .navbar-nav {
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
     min-height: 10vh;
     font-family: sans-serif;
-    background-color: black;
     color: white;
     justify-content: space-evenly;
   }
-  .navbar{
-    align-items: center;
-  }
-  
+
   .nav-item .nav-link  {
     margin-left: 25px;
     cursor: pointer;
@@ -48,5 +61,7 @@
   .navbar-collapse a:hover{
     color: red;
   }
-
-  
+  .nav-item .nav-link a {
+    justify-content: space-around;
+    margin-left: 20px;
+  }

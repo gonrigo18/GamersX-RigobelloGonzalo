@@ -2,6 +2,7 @@ import "../Cart/Cart.css"
 import React from 'react';
 import { useCartContext } from "../../Context/CartContext";
 import {BsFillTrashFill} from 'react-icons/bs'
+import { Link } from "react-router-dom";
 
 
 
@@ -20,6 +21,8 @@ const Cart = () => {
             <p>Precio: ${item.price}</p>
             <p>Cantidad: {item.cantidad}</p>
             <button onClick={()=>removeItem(item.id)} className="btn btn-danger"><BsFillTrashFill/></button>
+            <br />
+            <Link to="/" className='btn btn-warning my-2'>Seguir comprando</Link>
             <hr />
           </div>
         ))}

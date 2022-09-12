@@ -3,7 +3,7 @@ import { Card, CardBody, CardTitle, CardFooter, CardText } from 'reactstrap';
 import ItemCount from '../ItemCount/ItemCount'
 import { useState, useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
-import { Link } from 'react-router-dom'
+import ContinueShoping from '../ContinueShopping/ContinueShoping';
 
 
 
@@ -38,7 +38,7 @@ const ItemDetail = ({ item }) => {
                     </CardText>
                     {
                         isInCart(item.id)
-                            ? <Link to="/cart" className="btn btn-danger my-2">Terminar compra</Link>
+                            ? <ContinueShoping/>
                             : <ItemCount
                                 stock={item.stock}
                                 count={cantidad}
