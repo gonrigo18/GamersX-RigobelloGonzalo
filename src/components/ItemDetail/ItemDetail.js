@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, CardFooter, CardText } from 'reactstrap';
 import ItemCount from '../ItemCount/ItemCount'
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext"
 import ContinueShoping from '../ContinueShopping/ContinueShoping';
 
@@ -13,9 +13,8 @@ const ItemDetail = ({ item }) => {
     const { cart, addToCart, isInCart } = useContext(CartContext)
     console.log(cart)
 
-    const [cantidad, setCantidad] = useState(1)
 
-    const handleOnAdd = () => {
+    const handleOnAdd = (cantidad) => {
         const itemToCart = {
             id: item.id,
             name: item.name,
@@ -41,8 +40,6 @@ const ItemDetail = ({ item }) => {
                             ? <ContinueShoping/>
                             : <ItemCount
                                 stock={item.stock}
-                                count={cantidad}
-                                setCounter={setCantidad}
                                 handleOnAdd={handleOnAdd}
                             />
                     }
