@@ -1,5 +1,6 @@
   .navbar{
     background-color: #282c34;
+
   }
   .navbar a {
     text-decoration: none;
@@ -23,7 +24,7 @@
     min-height: 10vh;
     font-family: sans-serif;
     color: white;
-    justify-content: space-evenly;
+    
   }
 
   .nav-item .nav-link  {
@@ -47,6 +48,7 @@
   .navbar-collapse {
     margin-left: 20px;
     text-align:center;
+    justify-content: space-between!important;
   }
   .navbar-collapse a{
     font-size: 17px;
