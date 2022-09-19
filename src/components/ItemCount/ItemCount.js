@@ -27,7 +27,6 @@ const ItemCount = ({ stock, handleOnAdd }) => {
             <button onClick={() => handleOnAdd(cantidad)} className="add-cart btn btn-success my-2" disabled={stock <= 0} >Añadir al carrito</button>
         </div>
 
-
     )
 
 }
