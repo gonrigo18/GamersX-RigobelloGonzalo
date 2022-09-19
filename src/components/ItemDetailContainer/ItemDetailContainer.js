@@ -1,10 +1,11 @@
 import React from "react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { requestData } from "../RequestData/RequestData"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { Spinner } from "reactstrap"
 import { Navigate } from "react-router-dom";
+import { db } from '../../firebase/config'
+import { doc, getDoc } from 'firebase/firestore'
 import "../ItemDetailContainer/ItemDetailContainer.css"
 
 const ItemDetailContainer = () => {
@@ -16,12 +17,11 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-
-        requestData()
-            .then((res) => {
-                setItem(res.find((prod) => prod.id === Number(itemId)))
+        const docRef = doc(db, 'productos', itemId)
+        getDoc(docRef)
+            .then((doc) => {
+                setItem({ id: doc.id, ...doc.data() })
             })
-            .catch(err => console.log(err))
             .finally(() => {
                 setLoading(false)
             })

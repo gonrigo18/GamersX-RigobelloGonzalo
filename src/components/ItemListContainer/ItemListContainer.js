@@ -3,12 +3,11 @@ import React from 'react';
 import { Spinner } from "reactstrap"
 import ItemList from "../ItemlList/ItemList"
 import { useParams } from 'react-router-dom'
-import { requestData } from "../RequestData/RequestData"
 import { Navigate } from "react-router-dom";
+import { db } from '../../firebase/config'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ItemListContainer/ItemListContainer.css"
-
-
+import { collection, getDocs } from 'firebase/firestore'
 
 const ItemListContainer = () => {
 
@@ -19,18 +18,12 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-
-        requestData()
-
-            .then((res) => {
-                if (!categoryId) {
-                    setProductos(res)
-                } else {
-                    setProductos(res.filter((prod) => prod.category === categoryId))
-                }
+        const productosRef = collection(db, 'productos')
+        getDocs(productosRef)
+            .then((resp) => {
+                const productosDB = resp.docs.map( (doc) => ({ id: doc.id, ...doc.data()}) )
+                setProductos(productosDB)
             })
-            .catch(error =>
-                console.log(error))
             .finally(() => {
                 setLoading(false)
             })
