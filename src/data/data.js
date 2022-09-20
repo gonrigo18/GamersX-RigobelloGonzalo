@@ -77,7 +77,7 @@ export const data = [
 
         {
             id: 9,
-            name: ' Procesador Intel Celeron G5905 3.5GHz Socket 1200',
+            name: 'Procesador Intel Celeron G5905 3.5GHz Socket 1200',
             price: 8500,
             img: '/img/Procesador_Intel_Celeron_G5905_3.5GHz_Socket_1200_aa932e7b-grn.jpg',
             stock: 0,
