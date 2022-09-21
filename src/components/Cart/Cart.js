@@ -10,6 +10,16 @@ const Cart = () => {
 
   const { cart, cartTotal, emptyCart, removeItem } = useCartContext()
 
+  if (cart.length === 0) {
+    return (
+        <div className="container my-5">
+            <h2>Tu carrito está vacío</h2>
+            <hr/>
+            <Link to="/" className="btn btn-primary">Ir a comprar</Link>
+        </div>
+    )
+}
+
   return (
     <div className="container my-5">
       <h1>Carrito</h1>

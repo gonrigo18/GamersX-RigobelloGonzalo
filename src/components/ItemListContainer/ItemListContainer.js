@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 import { db } from '../../firebase/config'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ItemListContainer/ItemListContainer.css"
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs , query, where} from 'firebase/firestore'
 
 const ItemListContainer = () => {
 
@@ -19,9 +19,12 @@ const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
         const productosRef = collection(db, 'productos')
-        getDocs(productosRef)
+        const catId = categoryId
+            ? query(productosRef, where('category', '==', categoryId))
+            : productosRef
+        getDocs(catId)
             .then((resp) => {
-                const productosDB = resp.docs.map( (doc) => ({ id: doc.id, ...doc.data()}) )
+                const productosDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
                 setProductos(productosDB)
             })
             .finally(() => {

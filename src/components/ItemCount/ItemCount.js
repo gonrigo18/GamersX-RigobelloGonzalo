@@ -1,6 +1,5 @@
 import React from "react"
 import { useState } from "react"
-import Cart from "../Cart/Cart"
 
 const ItemCount = ({ stock, handleOnAdd }) => {
 
