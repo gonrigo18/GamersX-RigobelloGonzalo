@@ -27,6 +27,9 @@ const ItemListContainer = () => {
                 const productosDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
                 setProductos(productosDB)
             })
+            .catch ((err) =>{
+                console.log(err)
+            })
             .finally(() => {
                 setLoading(false)
             })
