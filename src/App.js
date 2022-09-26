@@ -8,7 +8,7 @@ import Contact from "./components/Contact/Contact";
 import NotFound404 from "./components/NotFound404/NotFound404";
 import Cart from "./components/Cart/Cart"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import { CartProvider } from "./Context/CartContext";
+import { CartProvider } from "./context/CartContext";
 
 import Checkout from "./components/Checkout/Checkout";
 
