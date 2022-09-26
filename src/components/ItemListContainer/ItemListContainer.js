@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 import { db } from '../../firebase/config'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../ItemListContainer/ItemListContainer.css"
-import { collection, getDocs , query, where} from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 const ItemListContainer = () => {
 
@@ -27,7 +27,7 @@ const ItemListContainer = () => {
                 const productosDB = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
                 setProductos(productosDB)
             })
-            .catch ((err) =>{
+            .catch((err) => {
                 console.log(err)
             })
             .finally(() => {

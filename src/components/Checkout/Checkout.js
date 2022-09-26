@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
-import { useCartContext } from "../../context/CartContext"
+import { useCartContext } from "../../Context/CartContext"
 import { addDoc, collection, getDocs, writeBatch, query, where, documentId } from 'firebase/firestore'
 import { db } from "../../firebase/config"
 import { useForm } from "../../hooks/useForm"
+import { Spinner } from "reactstrap"
+
+
 
 const Checkout = () => {
 
@@ -27,28 +30,28 @@ const Checkout = () => {
             items: cart,
             total: cartTotal()
         }
-        
+
 
         if (values.nombre.length < 2) {
             alert("Nombre incorrecto")
             return
         }
 
-        if (values.email.length < 2) { 
+        if (values.email.length < 2) {
             alert("Email incorrecto")
-            return 
+            return
         }
 
         const batch = writeBatch(db)
         const ordenesRef = collection(db, 'ordenes')
         const productosRef = collection(db, 'productos')
-    
+
         const q = query(productosRef, where(documentId(), 'in', cart.map(item => item.id)))
 
         const productos = await getDocs(q)
 
         const outOfStock = []
-            
+
         productos.docs.forEach((doc) => {
             const itemInCart = cart.find(item => item.id === doc.id)
 
@@ -62,6 +65,7 @@ const Checkout = () => {
         })
 
         if (outOfStock.length === 0) {
+            setLoading(true)
             batch.commit()
                 .then(() => {
                     addDoc(ordenesRef, orden)
@@ -71,16 +75,22 @@ const Checkout = () => {
                             terminarCompra()
                         })
                 })
+                .finally (()=>{
+                    setLoading(false)
+                })
         } else {
-            
             alert("Hay productos sin stock")
             console.log(outOfStock)
         }
 
     }
 
+
     if (orderId) {
         return (
+            loading ?
+            <Spinner color="primary" style={{ height: '3rem', width: '3rem' }} />
+            :
             <div className="container my-5">
                 <h2>Compra exitosa!</h2>
                 <hr/>
@@ -88,6 +98,7 @@ const Checkout = () => {
             </div>
         )
     }
+
 
     if (cart.length === 0) {
         return <Navigate to="/"/>
@@ -99,30 +110,30 @@ const Checkout = () => {
             <hr/>
 
             <form onSubmit={handleSubmit}>
-                <input 
+                <input
                     name="nombre"
                     onChange={handleInputChange}
                     value={values.nombre}
-                    type={'text'} 
-                    className="my-3 form-control" 
+                    type={'text'}
+                    className="my-3 form-control"
                     placeholder="Tu nombre"
                 />
 
-                <input 
+                <input
                     name="email"
                     onChange={handleInputChange}
                     value={values.email}
-                    type={'email'} 
-                    className="my-3 form-control" 
+                    type={'email'}
+                    className="my-3 form-control"
                     placeholder="Email"
                 />
 
-                <input 
+                <input
                     name="direccion"
                     onChange={handleInputChange}
                     value={values.direccion}
-                    type={'text'} 
-                    className="my-3 form-control" 
+                    type={'text'}
+                    className="my-3 form-control"
                     placeholder="Dirección"
                 />
 
