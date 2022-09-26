@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardTitle, CardFooter, CardText } from 'reactstrap';
 import ItemCount from '../ItemCount/ItemCount'
 import { useContext } from "react"
-import { CartContext } from "../../context/CartContext"
+import { CartContext } from "../../Context/CartContext"
 import ContinueShoping from '../ContinueShopping/ContinueShoping';
 
 
