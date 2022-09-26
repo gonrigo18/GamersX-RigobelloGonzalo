@@ -75,7 +75,7 @@ const Checkout = () => {
                             terminarCompra()
                         })
                 })
-                .finally (()=>{
+                .finally(() => {
                     setLoading(false)
                 })
         } else {
@@ -85,62 +85,57 @@ const Checkout = () => {
 
     }
 
-
-    if (orderId) {
-        return (
-            loading ?
-            <Spinner color="primary" style={{ height: '3rem', width: '3rem' }} />
-            :
-            <div className="container my-5">
-                <h2>Compra exitosa!</h2>
-                <hr/>
-                <p>Tu número de orden es: <strong>{orderId}</strong></p>
-            </div>
-        )
-    }
-
-
     if (cart.length === 0) {
-        return <Navigate to="/"/>
+        return <Navigate to="/" />
     }
 
     return (
-        <div className="container my-5">
-            <h2>Checkout</h2>
-            <hr/>
-
-            <form onSubmit={handleSubmit}>
-                <input
-                    name="nombre"
-                    onChange={handleInputChange}
-                    value={values.nombre}
-                    type={'text'}
-                    className="my-3 form-control"
-                    placeholder="Tu nombre"
-                />
-
-                <input
-                    name="email"
-                    onChange={handleInputChange}
-                    value={values.email}
-                    type={'email'}
-                    className="my-3 form-control"
-                    placeholder="Email"
-                />
-
-                <input
-                    name="direccion"
-                    onChange={handleInputChange}
-                    value={values.direccion}
-                    type={'text'}
-                    className="my-3 form-control"
-                    placeholder="Dirección"
-                />
-
-                <button type="submit" className="btn btn-primary">Enviar</button>
-            </form>
-
-        </div>
+        <>
+            {
+                loading ?
+                    <Spinner color="primary" style={{ height: '3rem', width: '3rem' }} />
+                    :
+                    <>
+                        {
+                            orderId ?
+                                <div className="container my-5">
+                                    <h2>Compra exitosa!</h2>
+                                    <hr />
+                                    <p>Tu número de orden es: <strong>{orderId}</strong></p>
+                                </div>
+                                :
+                                <div className="container my-5">
+                                    <h2>Checkout</h2>
+                                    <hr />
+                                    <form onSubmit={handleSubmit}>
+                                        <input
+                                            name="nombre"
+                                            onChange={handleInputChange}
+                                            value={values.nombre}
+                                            type={'text'}
+                                            className="my-3 form-control"
+                                            placeholder="Tu nombre" />
+                                        <input
+                                            name="email"
+                                            onChange={handleInputChange}
+                                            value={values.email}
+                                            type={'email'}
+                                            className="my-3 form-control"
+                                            placeholder="Email" />
+                                        <input
+                                            name="direccion"
+                                            onChange={handleInputChange}
+                                            value={values.direccion}
+                                            type={'text'}
+                                            className="my-3 form-control"
+                                            placeholder="Dirección" />
+                                        <button type="submit" className="btn btn-primary">Enviar</button>
+                                    </form>
+                                </div>
+                        }
+                    </>
+            }
+        </>
     )
 }
 
