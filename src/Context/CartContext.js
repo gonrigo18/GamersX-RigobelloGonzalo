@@ -1,15 +1,15 @@
 import React from 'react';
-import { createContext } from "react";
-import { useState } from "react"
-import { useContext } from "react"
+import { createContext, useContext, useEffect, useState } from "react";
 import Swal from 'sweetalert2'
 
 
 export const CartContext = createContext()
 
+const init = JSON.parse(localStorage.getItem('carrito')) || []
+
 export const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(init)
 
     const addToCart = (item) => {
         Swal.fire({
@@ -67,6 +67,23 @@ export const CartProvider = ({ children }) => {
             }
         })
     }
+    const terminarCompra = () => {
+        setCart([])
+      }
+      const terminarCompraConSwal = (id) => {
+        Swal.fire({
+          title: 'Compra exitosa!',
+          text: `Tu número de orden es: ${id}`,
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Genial!'
+        })
+        setCart([])
+      }
+  
+      useEffect(() => {
+          localStorage.setItem('carrito', JSON.stringify(cart))
+      }, [cart])
     return (
         <CartContext.Provider value={{
             cart,
@@ -75,7 +92,9 @@ export const CartProvider = ({ children }) => {
             cartCounter,
             cartTotal,
             emptyCart,
-            removeItem
+            removeItem,
+            terminarCompra,
+            terminarCompraConSwal
         }}>
             {children}
         </CartContext.Provider>
