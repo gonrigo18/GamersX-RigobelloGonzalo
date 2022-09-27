@@ -1,18 +1,18 @@
 import React from 'react';
 import { useState } from "react"
-import { Navigate } from "react-router-dom"
 import { useCartContext } from "../../Context/CartContext"
 import { addDoc, collection, getDocs, writeBatch, query, where, documentId } from 'firebase/firestore'
 import { db } from "../../firebase/config"
 import { useForm } from "../../hooks/useForm"
 import { Spinner } from "reactstrap"
+import { Link } from "react-router-dom";
 
 
 
 const Checkout = () => {
 
     const { cart, cartTotal, terminarCompra } = useCartContext()
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const [orderId, setOrderId] = useState(null)
 
@@ -24,6 +24,7 @@ const Checkout = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true)
 
         const orden = {
             comprador: values,
@@ -70,13 +71,11 @@ const Checkout = () => {
                 .then(() => {
                     addDoc(ordenesRef, orden)
                         .then((doc) => {
+                            setLoading(false)
                             console.log(doc.id)
                             setOrderId(doc.id)
                             terminarCompra()
                         })
-                })
-                .finally(() => {
-                    setLoading(false)
                 })
         } else {
             alert("Hay productos sin stock")
@@ -84,16 +83,11 @@ const Checkout = () => {
         }
 
     }
-
-    if (cart.length === 0) {
-        return <Navigate to="/" />
-    }
-
     return (
         <>
             {
                 loading ?
-                    <Spinner color="primary" style={{ height: '3rem', width: '3rem' }} />
+                    <center><Spinner color="primary" style={{ height: '3rem', width: '3rem' }} /></center>
                     :
                     <>
                         {
@@ -104,34 +98,41 @@ const Checkout = () => {
                                     <p>Tu número de orden es: <strong>{orderId}</strong></p>
                                 </div>
                                 :
-                                <div className="container my-5">
-                                    <h2>Checkout</h2>
-                                    <hr />
-                                    <form onSubmit={handleSubmit}>
-                                        <input
-                                            name="nombre"
-                                            onChange={handleInputChange}
-                                            value={values.nombre}
-                                            type={'text'}
-                                            className="my-3 form-control"
-                                            placeholder="Tu nombre" />
-                                        <input
-                                            name="email"
-                                            onChange={handleInputChange}
-                                            value={values.email}
-                                            type={'email'}
-                                            className="my-3 form-control"
-                                            placeholder="Email" />
-                                        <input
-                                            name="direccion"
-                                            onChange={handleInputChange}
-                                            value={values.direccion}
-                                            type={'text'}
-                                            className="my-3 form-control"
-                                            placeholder="Dirección" />
-                                        <button type="submit" className="btn btn-primary">Enviar</button>
-                                    </form>
-                                </div>
+                                cart.length === 0 ?
+                                    <div className="container my-5">
+                                        <h2>Tu carrito está vacío</h2>
+                                        <hr />
+                                        <Link to="/" className="btn btn-primary">Ir a comprar</Link>
+                                    </div>
+                                    :
+                                    <div className="container my-5">
+                                        <h2>Checkout</h2>
+                                        <hr />
+                                        <form onSubmit={handleSubmit}>
+                                            <input
+                                                name="nombre"
+                                                onChange={handleInputChange}
+                                                value={values.nombre}
+                                                type={'text'}
+                                                className="my-3 form-control"
+                                                placeholder="Tu nombre" />
+                                            <input
+                                                name="email"
+                                                onChange={handleInputChange}
+                                                value={values.email}
+                                                type={'email'}
+                                                className="my-3 form-control"
+                                                placeholder="Email" />
+                                            <input
+                                                name="direccion"
+                                                onChange={handleInputChange}
+                                                value={values.direccion}
+                                                type={'text'}
+                                                className="my-3 form-control"
+                                                placeholder="Dirección" />
+                                            <button type="submit" className="btn btn-primary">Enviar</button>
+                                        </form>
+                                    </div>
                         }
                     </>
             }
