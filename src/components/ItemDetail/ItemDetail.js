@@ -10,8 +10,7 @@ import ContinueShoping from '../ContinueShopping/ContinueShoping';
 const ItemDetail = ({ item }) => {
 
 
-    const { cart, addToCart, isInCart } = useContext(CartContext)
-    console.log(cart)
+    const { addToCart, isInCart } = useContext(CartContext)
 
 
     const handleOnAdd = (cantidad) => {

@@ -23,7 +23,6 @@ const ItemDetailContainer = () => {
                 setItem({ id: doc.id, ...doc.data() })
             })
             .catch ((err) =>{
-                console.log(err)
             })
             .finally(() => {
                 setLoading(false)

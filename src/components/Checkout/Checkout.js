@@ -72,14 +72,12 @@ const Checkout = () => {
                     addDoc(ordenesRef, orden)
                         .then((doc) => {
                             setLoading(false)
-                            console.log(doc.id)
                             setOrderId(doc.id)
                             terminarCompra()
                         })
                 })
         } else {
             alert("Hay productos sin stock")
-            console.log(outOfStock)
         }
 
     }
