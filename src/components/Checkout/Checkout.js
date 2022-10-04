@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 
 
+
 const Checkout = () => {
 
     const { cart, cartTotal, terminarCompra } = useCartContext()
@@ -24,7 +25,6 @@ const Checkout = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setLoading(true)
 
         const orden = {
             comprador: values,
@@ -32,16 +32,16 @@ const Checkout = () => {
             total: cartTotal()
         }
 
-
         if (values.nombre.length < 2) {
             alert("Nombre incorrecto")
             return
         }
 
-        if (values.email.length < 2) {
+        if (values.email.length < 2) {  
             alert("Email incorrecto")
             return
         }
+        setLoading(true)
 
         const batch = writeBatch(db)
         const ordenesRef = collection(db, 'ordenes')
