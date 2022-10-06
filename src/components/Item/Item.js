@@ -8,7 +8,7 @@ const Item = ({ producto }) => {
 
 
     return (
-        <>
+        <div className="my-3 ver">
             <Card style={{ width: '15rem' }}>
                 <img src={producto.img} alt="" />
                 <CardBody>
@@ -17,12 +17,12 @@ const Item = ({ producto }) => {
                     </CardTitle>
                 </CardBody>
                 <CardFooter>
-                    <p>Precio: {producto.price}</p>
+                    <p>Precio: ${producto.price}</p>
                     <small>Stock disponible: {producto.stock}</small>
                 </CardFooter>
                 <Link to={`/item/${producto.id}`} className="btn btn-primary my-2">Ver más</Link>
             </Card>
-        </>
+        </div>
     )
 }
 

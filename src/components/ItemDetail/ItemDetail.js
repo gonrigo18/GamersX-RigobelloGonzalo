@@ -45,7 +45,7 @@ const ItemDetail = ({ item }) => {
                     }
                 </CardBody>
                 <CardFooter>
-                    <p>Precio: {item.price}</p>
+                    <p>Precio: ${item.price}</p>
                     <small>Stock disponible: {item.stock}</small>
                 </CardFooter>
             </Card>
