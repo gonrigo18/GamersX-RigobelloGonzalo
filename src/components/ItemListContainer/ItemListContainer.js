@@ -28,7 +28,6 @@ const ItemListContainer = () => {
                 setProductos(productosDB)
             })
             .catch((err) => {
-                console.log(err)
             })
             .finally(() => {
                 setLoading(false)

@@ -18,7 +18,6 @@ export const useProductos = () => {
         getDocs(q)
             .then((resp) => {
                 const productosDB = resp.docs.map( (doc) => ({id: doc.id, ...doc.data()}) )
-                console.log(productosDB)
 
                 setProductos(productosDB)
             })
